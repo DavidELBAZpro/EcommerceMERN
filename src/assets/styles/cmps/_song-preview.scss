@@ -1,0 +1,239 @@
+.song-preview {
+    display: grid;
+    grid-template-columns: 16px 6fr 2fr minmax(120px, 1fr);
+    font-family: circular-medium, sans-serif;
+    gap: 16px;
+    padding: 0 16px;
+
+    cursor: default !important;
+    height: 56px;
+    align-items: center;
+    color: $clr7;
+    position: relative;
+
+    @include for-mobile-layout {
+
+        padding: 0;
+        grid-template-columns: 16px 6fr minmax(50px, 1fr);
+
+        .created-at-container {
+            display: none;
+        }
+
+        .btn-more-options {
+            opacity: 1 !important;
+        }
+
+        .duration {
+            display: none;
+        }
+
+        .play-song-container {
+
+            .btn-play {
+                opacity: 1;
+            }
+
+            .song-number {
+                opacity: 0;
+            }
+        }
+
+        &.playing {
+            .song-playing-img {
+                opacity: 0;
+            }
+
+            .btn-play svg {
+                fill: $clr4
+            }
+        }
+
+    }
+
+    @include for-small-layout {
+        .btn-like.unliked{
+            opacity: 0;
+        }
+
+        &:hover .btn-like.unliked {
+            opacity: 1;
+        }
+    }
+
+    &.playing {
+
+        .song-number,
+        .title-container .title {
+            color: $clr4
+        }
+    }
+
+    .play-song-container {
+
+        .inner-container {
+            color: #b3b3b3;
+            height: 16px;
+            min-height: 16px;
+            min-width: 16px;
+            position: relative;
+            width: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .song-number {
+                font-size: 16px;
+                line-height: 1.5rem;
+                position: absolute;
+                margin-block: 0px;
+                font-weight: 400;
+            }
+
+        }
+    }
+
+
+    .btn-play {
+        background-color: transparent;
+        opacity: 0;
+        border: none;
+        position: absolute;
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        width: 26px;
+
+        &>* {
+            fill: $clr8;
+            height: 16px;
+            width: 16px;
+        }
+    }
+
+    .btn-more-options {
+        opacity: 0;
+
+    }
+
+    &:hover {
+
+        .btn-play {
+            opacity: 1;
+        }
+
+        .btn-more-options {
+            opacity: 1;
+        }
+
+        .song-playing-img {
+            opacity: 0;
+        }
+
+        .song-number {
+            opacity: 0;
+        }
+
+
+        background-color: rgba(255, 255, 255, .1);
+    }
+
+
+    .img-and-title-container {
+        color: $clr8;
+        overflow: hidden;
+
+        img {
+            margin-right: 16px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .title-container {
+            overflow: hidden;
+        }
+
+
+        .title {
+            padding-right: 8px;
+            white-space: nowrap;
+            word-break: break-all;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+
+    .duration-and-actions-container {
+        justify-self: end;
+
+        .btn-like {
+            background: transparent;
+            border: 0;
+            color: rgba(255, 255, 255, .7);
+            display: flex;
+            padding: 0;
+            margin-inline-end: 16px;
+        }
+
+        .duration {
+            width: 5ch;
+        }
+
+        .btn-more-options {
+            background-color: transparent;
+            border: none;
+
+            svg {
+                fill: $clr8;
+            }
+        }
+    }
+
+    .options-menu {
+        z-index: 100;
+        position: absolute;
+        top: -20px;
+        right: 50px;
+        margin: 0px;
+        min-width: 196px;
+
+        .option-list {
+            background-color: #282828;
+            border-radius: 4px;
+            box-shadow: 0 16px 24px rgb(0 0 0 / 30%), 0 6px 8px rgb(0 0 0 / 20%);
+            max-height: calc(100vh - 24px);
+            max-width: 350px;
+            min-width: 160px;
+            overflow-y: auto;
+            padding: 4px;
+
+            .option {
+
+                background: transparent;
+                border: 0;
+                border-radius: 2px;
+                color: rgba(255, 255, 255, .9);
+                text-decoration: none;
+                align-items: center;
+                display: flex;
+                gap: 8px;
+                height: 40px;
+                justify-content: space-between;
+                padding: 12px;
+                padding-inline-end: 8px;
+                position: relative;
+                text-align: start;
+                user-select: none;
+                width: 100%;
+
+                &:hover {
+                    background-color: lighten($clr11, 12%);
+
+                }
+            }
+        }
+    }
+
+}

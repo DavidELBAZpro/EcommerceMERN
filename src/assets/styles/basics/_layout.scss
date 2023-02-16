@@ -1,0 +1,51 @@
+.main-layout {
+  display: grid;
+  grid-template-areas:
+    "nav-container main-view"
+    "music-player music-player";
+  grid-template-columns: 241px 1fr;
+  grid-template-rows: 1fr 90px;
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+  background-color: $clr1;
+  color: $clr8;
+
+
+  @include for-mobile-layout {
+    grid-template-rows: 80px 1fr 80px 80px;
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "main-view"
+      "main-view"
+      "main-view"
+      "nav-container";
+    overflow-y: hidden;
+
+    .music-player {
+      display: none;
+    }
+
+    &.playing-now {
+
+      grid-template-areas:
+        "main-view"
+        "main-view"
+        "music-player"
+        "nav-container";
+
+      .music-player {
+        display: flex;
+      }
+    }
+  }
+
+  .main-view-container {
+    grid-area: main-view;
+    position: absolute;
+    overflow-y: scroll;
+    // padding: 0 32px;
+    inset: 0;
+  }
+}

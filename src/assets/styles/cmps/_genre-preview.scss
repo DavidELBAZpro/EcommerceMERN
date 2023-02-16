@@ -1,0 +1,56 @@
+.genre-preview-container {
+
+
+    .genre-card {
+
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+
+        @include for-mobile-layout {
+            height: 150px;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 50;
+            letter-spacing: -.04em;
+            line-height: 1.3em;
+            max-width: 100%;
+            overflow-wrap: break-word;
+            padding: 16px;
+            position: absolute;
+            z-index: 10;
+        }
+
+
+        img {
+            box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+            transform: rotate(25deg) translate(18%, -2%);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            object-position: center center;
+
+            @include for-mobile-layout {
+                width: 90px;
+                height: 90px;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+    }
+}

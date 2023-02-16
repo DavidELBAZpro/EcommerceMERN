@@ -1,0 +1,62 @@
+.genre-container {
+    padding-bottom: 32px;
+    width: 100%;
+    height: 100%;
+
+    h2 {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 1.75rem;
+        letter-spacing: -0.04em;
+        height: 28px;
+        margin-bottom: 23px;
+
+    }
+
+    .genre-list {
+        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+        grid-gap: 15px;
+
+        @media (min-width: $break-lg) {
+            grid-gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    }
+
+}
+
+.genre-page {
+
+    .genre-title {
+        text-transform: capitalize;
+        padding: 0.08em 0px;
+        visibility: visible;
+        width: 100%;
+        font-size: 46px;
+        font-weight: 500;
+
+        @include for-small-layout {
+            line-height: 96px;
+            font-weight: 600;
+            font-size: 96px;
+            margin: 2rem 0;
+        }
+    }
+
+    .station-list {
+        overflow-y: visible;
+        grid-auto-flow: row;
+        grid-gap: 0;
+        gap: 2em;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+
+        .station-preview {
+            width: 100%;
+        }
+
+        @include for-mobile-layout {
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            padding-right: 0px;
+        }
+    }
+}
