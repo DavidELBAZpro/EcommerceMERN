@@ -1,10 +1,10 @@
-const productData = {
+export const productData = {
     products: [
         {
             name: 'Nike Slim Shirt',
             slug: 'nike-slim-shirt',
             category: 'Shirts',
-            image: '/imgs/p1.jpg',
+            image: '/imgs/nike-shirt.webp',
             price: 120,
             countInStock: 10,
             brand: 'Nike',
@@ -16,7 +16,7 @@ const productData = {
             name: 'Nike Slim Pants',
             slug: 'nike-slim-pants',
             category: 'Pants',
-            image: '/imgs/p3.jpg',
+            image: '/imgs/nike-pants.webp',
             price: 130,
             countInStock: 15,
             brand: 'Nike',
@@ -28,7 +28,7 @@ const productData = {
             name: 'Adidas Slim Pants',
             slug: 'adidas-slim-pants',
             category: 'Pants',
-            image: '/imgs/p4.jpg',
+            image: '/imgs/adidas-pants.webp',
             price: 125,
             countInStock: 22,
             brand: 'Adidas',
