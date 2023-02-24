@@ -1,3 +1,11 @@
+import { Header } from './cmps/header'
+import { Product } from './cmps/product'
+
 export function App() {
-  return <div></div>
+  return (
+    <div>
+      <Header />
+      <Product />
+    </div>
+  )
 }
