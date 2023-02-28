@@ -1,5 +1,5 @@
-import React from 'react'
 import { Product } from '../cmps/product'
+import axios from 'axios'
 
 export const HomePage = () => {
   return (
