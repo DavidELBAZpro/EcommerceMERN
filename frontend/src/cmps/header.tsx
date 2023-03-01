@@ -1,9 +1,17 @@
-import { Link } from 'react-router-dom'
+import Navbar from 'react-bootstrap/Navbar'
+import Container from 'react-bootstrap/Container'
+import { LinkContainer } from 'react-router-bootstrap'
 
 export function Header() {
   return (
     <header>
-      <Link to="/">Header</Link>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <LinkContainer to="/">
+            <Navbar.Brand>Header</Navbar.Brand>
+          </LinkContainer>
+        </Container>
+      </Navbar>
     </header>
   )
 }
