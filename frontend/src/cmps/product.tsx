@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import { products } from '../data/product.data.js'
 import axios from 'axios'
+import { Row, Col, Card, Button } from 'react-bootstrap'
+import { Rating } from '../DynamicCmps/rating'
 
 export const Product = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('result.status')
       const result = await axios.get('/api/products')
       setProducts(result.data)
     }
@@ -17,22 +17,32 @@ export const Product = () => {
 
   return (
     <div className="products">
-      {products.map((product: any, index: number) => (
-        <div className="product" key={index}>
-          <Link to={`/product/${product.slug}`}>
-            <img src={product.image} alt={product.name} />
-          </Link>
-          <div className="product-info">
-            <Link to={`/product/${product.slug}`}>
-              <p>{product.name}</p>
-            </Link>
-            <p>
-              <strong>${product.price}</strong>
-            </p>
-            <button>Add to cart</button>
-          </div>
-        </div>
-      ))}
+      <Row>
+        {products.map((product: any, index: number) => (
+          <Col key={index} sm={6} md={4} lg={3} className="mb-3">
+            <Card className="product">
+              <Link to={`/product/${product.slug}`}>
+                <img
+                  src={product.image}
+                  className="card-img-top"
+                  alt={product.name}
+                />
+              </Link>
+              <Card.Body>
+                <Link to={`/product/${product.slug}`}>
+                  <Card.Title>{product.name}</Card.Title>
+                </Link>
+                <Rating
+                  rating={product.rating}
+                  numReviews={product.numReviews}
+                />
+                <Card.Text>${product.price}</Card.Text>
+                <Button>Add to cart</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </div>
   )
 }
