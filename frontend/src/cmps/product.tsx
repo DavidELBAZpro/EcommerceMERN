@@ -37,7 +37,7 @@ export const Product = () => {
                   numReviews={product.numReviews}
                 />
                 <Card.Text>${product.price}</Card.Text>
-                <Button>Add to cart</Button>
+                <Button className="btn-primary">Add to cart</Button>
               </Card.Body>
             </Card>
           </Col>

@@ -9,10 +9,11 @@ export default defineConfig({
     host: true,
     port: 3000,
     proxy: {
-      '/api/products': {
+      '/api': {
         target: 'http://localhost:8000',
         changeOrigin: true,
         secure: false,
+        // rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
