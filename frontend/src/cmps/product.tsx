@@ -4,7 +4,7 @@ import axios from 'axios'
 import { Row, Col, Card, Button } from 'react-bootstrap'
 import { Rating } from '../DynamicCmps/rating'
 
-const reducer = (state, action) => {
+export const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
       return { ...state, loading: true }

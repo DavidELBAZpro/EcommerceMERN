@@ -6,7 +6,7 @@ export const productData = {
             category: 'Shirts',
             image: '/images/nike-shirt.webp',
             price: 120,
-            countInStock: 10,
+            countInStock: 3,
             brand: 'Nike',
             rating: 4.5,
             numReviews: 10,
