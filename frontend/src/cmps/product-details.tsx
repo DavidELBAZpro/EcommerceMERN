@@ -4,6 +4,9 @@ import axios from 'axios'
 import { ListGroup, Card, Row, Col, Button, Badge } from 'react-bootstrap'
 import { Rating } from '../DynamicCmps/rating'
 import { Helmet } from 'react-helmet-async'
+import { LoadingBox } from '../DynamicCmps/loading-box'
+import { MessageBox } from '../DynamicCmps/message-box'
+import { getError } from '../services/get.error.js'
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -35,15 +38,15 @@ export const ProductDetails = () => {
         const result = await axios.get(`/api/products/slug/${slug}`)
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data })
       } catch (err) {
-        dispatch({ type: 'FETCH_FAIL', payload: err.message })
+        dispatch({ type: 'FETCH_FAIL', payload: getError(err) })
       }
     }
     fetchData()
   }, [slug])
   return loading ? (
-    <div>Loading...</div>
+    <LoadingBox />
   ) : error ? (
-    <div>{error}</div>
+    <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <Row>
       <Col md={6}>

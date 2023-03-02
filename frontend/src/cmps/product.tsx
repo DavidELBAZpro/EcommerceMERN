@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Row, Col, Card, Button } from 'react-bootstrap'
 import { Rating } from '../DynamicCmps/rating'
+import { LoadingBox } from '../DynamicCmps/loading-box'
+import { MessageBox } from '../DynamicCmps/message-box'
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -36,8 +38,6 @@ export const Product = () => {
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message })
       }
-
-      // setProducts(result.data);
     }
     fetchData()
   }, [])
@@ -46,9 +46,9 @@ export const Product = () => {
     <div className="products">
       <Row>
         {loading ? (
-          <div>Loading...</div>
+          <LoadingBox />
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           products.map((product: any, index: number) => (
             <Col key={index} sm={6} md={4} lg={3} className="mb-3">
